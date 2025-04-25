@@ -195,9 +195,6 @@ async function addGamesToCollection(arIdsToBeAdded) {
     await driver.get(`${BASE_URL}/login`);
     console.log(RESET, "[Status update] Logging in.");
     await driver.sleep(3000);
-    await driver.executeScript(
-      `document.querySelector("button[class~='fc-cta-consent']").click();`
-    );
     await driver.findElement(By.id("inputUsername")).sendKeys(userName);
     await driver
       .findElement(By.id("inputPassword"))
