@@ -106,9 +106,11 @@ The file must include a semicolon-separated list of the ID's to be added. It doe
 
 ## How it works
 
-The program reads the ID's from the input file. It then compares them to the ID's which are already in the user's collection. To do that, it sends a http request to XML API2 of BoardGameGeek. After this comparision, the program knows which of the ID's of the input file are actually new ID's to be added to the collection.
-
-It then starts a browser session (Chrome or Firefox, as you wish) with Selenium webdriver. After logging in, it navigates to the pages of all the games specified by the ID's. Here, it clicks the buttons to add each game to the user's collection. This continues until all ID's are processed (or until something occured that lead to an abortion).
+- The program reads the ID's from the input file. 
+- It then starts a browser session (Chrome or Firefox, as you wish) with Selenium webdriver and logs into your account, using the credentials you provided.
+- Now it navigates to your collection to scrape the ID's of the games you already have in your collection (before the changes to the BGG API policy in 2025, the XML API was used, but this does not work anymore). 
+- After the comparision of imported and already existing ID's, the program knows which of the ID's of the input file are actually new ID's to be added to the collection.
+- Now, it navigates to the pages of all the games specified by the ID's. Here, it clicks the buttons to add each game to the user's collection. This continues until all ID's are processed (or until something occured that lead to an abortion).
 
 ## Performance / Speed
 
